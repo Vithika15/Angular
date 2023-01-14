@@ -1,19 +1,15 @@
 .card-container {
-  // display: flex;
-  // flex-wrap: wrap;
-  //  justify-content: center;
-  // margin-top: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px;
-  // height: 100vh;
-
 }
+
 .matcard{
   width: 600px;
-  // display:inline-block;
+  border: none;
 }
+
 
 .content{
   margin: 10px;
@@ -28,3 +24,24 @@
 .mat-radio-button{
   margin-left: 10px;
 }
+
+.img-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+.mat-card-image{
+
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.mat-card-image:first-child{
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+
+

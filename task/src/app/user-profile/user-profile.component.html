@@ -1,59 +1,94 @@
 
+<div class="content">
 
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="13px grid">
 
-<div class="content" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="matcard">
-    <mat-card-header>
-      <mat-card-title>Profile</mat-card-title>
+    <!-- profile card -->
+    <div fxFlex="40" fxFlex.xs="100" fxLayoutAlign="end center">
 
-    </mat-card-header>
-    <mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-raised-button color="primary" (click)="openDialog(editProfileDialog)">Edit Profile</button>
-      </mat-card-actions>
+      <mat-card [ngStyle]="isDeviceXs ? {'width': '600px'} : {'width': '300px'}" >
 
-      <mat-grid-list cols="2">
-        <mat-grid-tile>
-
-          <div class="content">
-            <p>Name</p>
-            <p>Domain</p>
-            <p>Gender</p>
-            <p>Date of Birth</p>
-            <p>Phone Number</p>
-            <p>Location</p>
+        <!-- card content -->
+        <mat-card-content>
+          <div class="img-container">
+            <img mat-card-image src="https://www.pngmart.com/files/21/Account-Avatar-Profile-PNG-Photo.png" alt="Photo">
           </div>
 
+          <p style="text-align: center;"><strong>John Smith</strong></p>
 
-        </mat-grid-tile>
-        <mat-grid-tile>
+          <p>
+            <mat-icon>education</mat-icon>
+            Insurance Agent,Attorney,Accountant
+          </p>
+        </mat-card-content>
 
-          <div class="content">
-            <p>{{userDetails.Name}}</p>
-            <p>{{userDetails.Domain}}</p>
-            <p>{{userDetails.Gender}}</p>
-            <p>{{userDetails.Dob}}</p>
-            <p>{{userDetails.PhoneNumber}}</p>
-            <p>{{userDetails.Location}}</p>
+        <!-- card footer/ action -->
+        <mat-card-actions align="end">
+          <button mat-button><mat-icon> email</mat-icon>Send In Mail</button>
+        </mat-card-actions>
+
+      </mat-card>
+    </div>
+
+ <!-- profile details card -->
+    <div fxFlex="40" fxFlex.xs="100" fxLayoutAlign="start center">
+      <mat-card class="matcard">
+        <mat-card-header>
+          <mat-card-title>Business Details</mat-card-title>
+          <mat-card-subtitle>
+            <!-- <mat-icon>account_circle</mat-icon> -->
+            Profile
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <div fxFlex="30" fxLayoutAlign="start center">
+            <div>
+              <p>Name</p>
+              <p>Domain</p>
+              <p>Gender</p>
+              <p>Date of Birth</p>
+              <p>Phone Number</p>
+              <p>Location</p>
+            </div>
+          </div>
+          <div fxFlex="70" fxLayoutAlign="start center">
+            <div>
+              <p>{{userDetails.Name}}</p>
+              <p>{{userDetails.Domain}}</p>
+              <p>{{userDetails.Gender}}</p>
+              <p>{{userDetails.Dob| date:'longDate'}}</p>
+              <p>{{userDetails.PhoneNumber}}</p>
+              <p>{{userDetails.Location}}</p>
+            </div>
           </div>
 
-        </mat-grid-tile>
+        </mat-card-content>
 
-      </mat-grid-list>
-    </mat-card-content>
 
-  </mat-card>
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" (click)="openDialog(editProfileDialog)">Edit Profile</button>
+        </mat-card-actions>
+
+
+      </mat-card>
+    </div>
+
+
+  </div>
 </div>
 
+
+<!-- edit profile Dialog -->
 <ng-template #editProfileDialog>
+
   <h1 mat-dialog-title>Edit Details</h1>
 
-
-
   <div mat-dialog-content>
+    <!-- edit form -->
     <form [formGroup]="editUserDetailsForm" (ngSubmit)="editDetails()">
       <div>
-        <mat-form-field  class="full-width" appearance="fill">
+        <mat-form-field class="full-width" appearance="fill">
           <mat-label>Name </mat-label>
           <input matInput formControlName="Name">
         </mat-form-field>
@@ -67,55 +102,53 @@
       </div>
 
 
-
       <div fxLayout="row" fxLayout.xs="column">
-        <div fxFlex="50" class="sec1" fxFlex.xs="55">
+        <div fxFlex="45"  fxFlex.xs="55">
           <mat-label>Gender </mat-label>
-          <div>
-            <mat-radio-group aria-label="Select an option">
+          <div style="margin-top: 20px;">
+            <mat-radio-group  formControlName="Gender" aria-label="Select an option">
               <mat-radio-button value="Male">Male </mat-radio-button>
               <mat-radio-button value="Female">Female </mat-radio-button>
             </mat-radio-group>
           </div>
         </div>
-        <div fxFlex="50" class="sec2">
+
+        <div fxFlex="50" >
           <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="Dob">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-
         </div>
 
+      </div>
 
 
-        </div>
+      <div>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Phone Number </mat-label>
+          <span matPrefix>+91&nbsp;</span>
+          <input matInput maxlength="10" formControlName="PhoneNumber">
+        </mat-form-field>
+      </div>
 
 
-     <div>
-      <mat-form-field class="full-width" appearance="fill">
-        <mat-label>Phone Number </mat-label>
-        <input matInput maxlength="10" formControlName="PhoneNumber">
-     </mat-form-field>
-     </div>
+      <div>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Location</mat-label>
+          <textarea matInput placeholder="Locationt" formControlName="Location"></textarea>
+        </mat-form-field>
+      </div>
 
 
-     <div>
-      <mat-form-field class="full-width"  appearance="fill">
-        <mat-label>Location</mat-label>
-        <textarea matInput placeholder="Locationt" formControlName="Location"></textarea>
-     </mat-form-field>
-     </div>
-
-
-      </form>
+    </form>
   </div>
 
-  <div mat-dialog-actions>
+  <div mat-dialog-actions style="float: right;">
     <button mat-button mat-dialog-close>Close</button>
     <button mat-raised-button color="primary" (click)="editDetails()">Save</button>
-
   </div>
+
 </ng-template>

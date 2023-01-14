@@ -16,8 +16,8 @@ export class UserProfileComponent implements OnInit {
     Name:'Mary,Jason & Hodge of Attorney',
     Domain:'www.mjhattorenys.com',
     Gender:'Male',
-    Dob:'8th June 1979',
-    PhoneNumber:+8654321234,
+    Dob:new Date('08/06/1979'),
+    PhoneNumber:'8654321234',
     Location:'12 street, Silicon Valley, Avenue NE,Huntsvile'
     }
 
@@ -25,15 +25,15 @@ export class UserProfileComponent implements OnInit {
     Name:new FormControl(''),
     Domain:new FormControl(''),
     Gender:new FormControl(''),
-    Dob:new FormControl(''),
-    PhoneNumber:new FormControl(),
+    Dob:new FormControl(new Date()),
+    PhoneNumber:new FormControl(''),
     Location:new FormControl('')
    })
 
    dialogRef: MatDialogRef<any> | undefined ;
    activeMediaQuery = '';
 
-
+  prefix = '+91';
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -54,11 +54,15 @@ export class UserProfileComponent implements OnInit {
 
 
   editDetails(){
+    const phoneNo = this.editUserDetailsForm.controls['PhoneNumber'].value ? this.editUserDetailsForm.controls['PhoneNumber'].value:0
       const Data = {
-        ...this.editUserDetailsForm.value
+        ...this.editUserDetailsForm.value,
+        PhoneNumber: this.prefix + phoneNo
       }
 
+      console.log("data:",Data)
 
+      this.dialogRef?.close();
 
       // this.userDetails.Name =  this.editUserDetailsForm.controls['Name'].value
   }
