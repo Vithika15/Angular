@@ -1,0 +1,30 @@
+.card-container {
+  // display: flex;
+  // flex-wrap: wrap;
+  //  justify-content: center;
+  // margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  // height: 100vh;
+
+}
+.matcard{
+  width: 600px;
+  // display:inline-block;
+}
+
+.content{
+  margin: 10px;
+}
+
+
+.full-width{
+  width: 90%;
+  margin-top: 5px;
+}
+
+.mat-radio-button{
+  margin-left: 10px;
+}

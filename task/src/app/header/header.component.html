@@ -1,0 +1,24 @@
+
+  <mat-toolbar color="primary">
+    <mat-toolbar-row fxLayoutAlign="space-between center">
+      <div>
+        <button mat-icon-button class="example-icon">
+          <mat-icon>home</mat-icon>
+        </button>
+        <button mat-button >Home</button>
+        <button mat-button >Trustees</button>
+        <button mat-button >Professionals</button>
+      </div>
+      <div>
+        <button mat-icon-button>
+          <mat-icon *ngIf="isDeviceXs">more_vert</mat-icon>
+          <span *ngIf="!isDeviceXs">Menu</span>
+        </button>
+      </div>
+    </mat-toolbar-row>
+
+
+
+
+  </mat-toolbar>
+
