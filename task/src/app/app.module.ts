@@ -19,6 +19,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatRadioModule,
     MatNativeDateModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatMenuModule
 
   ],
   providers: [],

@@ -1,3 +1,19 @@
-.example-spacer {
-  flex: 1 1 auto;
+
+.mat-toolbar{
+  background-color: white;
+  color: black;
+
+  .profile-content{
+    display: flex;
+  }
+
+  .header-profile{
+
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px;
+    margin-top: 10px;
+
+  }
 }

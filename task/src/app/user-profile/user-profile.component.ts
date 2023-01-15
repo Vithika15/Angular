@@ -64,7 +64,7 @@ export class UserProfileComponent implements OnInit {
 
       this.dialogRef?.close();
 
-      // this.userDetails.Name =  this.editUserDetailsForm.controls['Name'].value
+
   }
 
 

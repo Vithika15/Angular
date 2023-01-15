@@ -105,7 +105,7 @@
       <div fxLayout="row" fxLayout.xs="column">
         <div fxFlex="45"  fxFlex.xs="55">
           <mat-label>Gender </mat-label>
-          <div style="margin-top: 20px;">
+          <div class="radio-container">
             <mat-radio-group  formControlName="Gender" aria-label="Select an option">
               <mat-radio-button value="Male">Male </mat-radio-button>
               <mat-radio-button value="Female">Female </mat-radio-button>
@@ -113,7 +113,7 @@
           </div>
         </div>
 
-        <div fxFlex="50" >
+        <div fxFlex="50">
           <mat-form-field class="full-width" appearance="fill">
             <mat-label>Date of Birth</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="Dob">

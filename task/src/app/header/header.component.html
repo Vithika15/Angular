@@ -1,19 +1,40 @@
 
-  <mat-toolbar color="primary">
+  <mat-toolbar>
     <mat-toolbar-row fxLayoutAlign="space-between center">
       <div>
-        <button mat-icon-button class="example-icon">
+        <button mat-icon-button >
           <mat-icon>home</mat-icon>
         </button>
         <button mat-button >Home</button>
         <button mat-button >Trustees</button>
         <button mat-button >Professionals</button>
       </div>
+
       <div>
-        <button mat-icon-button>
-          <mat-icon *ngIf="isDeviceXs">more_vert</mat-icon>
-          <span *ngIf="!isDeviceXs">Menu</span>
+
+
+        <button *ngIf="isDeviceXs" mat-icon-button>
+          <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
         </button>
+
+        <div *ngIf="!isDeviceXs" class="profile-content">
+          <button mat-button><mat-icon> email</mat-icon>Invite</button>
+          <span>
+            <img mat-card-image class="header-profile"
+              src="https://www.pngmart.com/files/21/Account-Avatar-Profile-PNG-Photo.png" alt="Photo">
+          </span>
+        </div>
+
+
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>account_circle</mat-icon>
+            Profile
+          </button>
+          <button mat-menu-item><mat-icon> email</mat-icon>Invite</button>
+        </mat-menu>
+
+
       </div>
     </mat-toolbar-row>
 
